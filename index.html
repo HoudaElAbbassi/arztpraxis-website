@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Praxis für Gefäßmedizin - Facharzt für Gefäßchirurgie und Viszeralchirurgie">
+    <title>Praxis für Gefäßmedizin - Termine online buchen</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="assets/img/logo.jpeg">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+    <!-- Header/Navigation -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-wrapper">
+                    <div class="logo">
+                        <img src="assets/img/logo.jpeg" alt="Arztpraxis Logo">
+                    </div>
+                    <button class="mobile-toggle" id="mobileToggle">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                    <ul class="nav-menu" id="navMenu">
+                        <li><a href="#home">Start</a></li>
+                        <li><a href="#about">Über uns</a></li>
+                        <li><a href="#services">Leistungen</a></li>
+                        <li><a href="#appointment">Termin buchen</a></li>
+                        <li><a href="#contact">Kontakt</a></li>
+                    </ul>
+                    <a href="#appointment" class="btn btn-primary">Termin vereinbaren</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Praxis für Gefäßmedizin Remscheid</h1>
+                <p class="lead">Facharzt für Gefäßchirurgie und Viszeralchirurgie – Ihre Spezialisten für moderne Gefäß- und Viszeralchirurgie</p>
+                <div class="hero-buttons">
+                    <a href="#appointment" class="btn btn-primary btn-lg">
+                        <i class="fas fa-calendar-check"></i> Termin buchen
+                    </a>
+                    <a href="#services" class="btn btn-outline btn-lg">
+                        <i class="fas fa-info-circle"></i> Mehr erfahren
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section about">
+        <div class="container">
+            <div class="section-header">
+                <h2>Über unsere Praxis</h2>
+                <p>Spezialisierte Chirurgie mit langjähriger Erfahrung</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Expertise in Gefäß- und Viszeralchirurgie</h3>
+                    <p>Unsere Praxis ist spezialisiert auf Gefäßchirurgie und Viszeralchirurgie. Mit langjähriger Erfahrung und modernster medizinischer Ausstattung bieten wir Ihnen eine kompetente Diagnostik und Behandlung von Gefäßerkrankungen sowie Erkrankungen der Bauchorgane.</p>
+                    <p>Wir legen großen Wert auf eine ausführliche Beratung, individuelle Behandlungskonzepte und die enge Zusammenarbeit mit anderen Fachärzten zum Wohle unserer Patienten.</p>
+                    <div class="features">
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Facharzt für Gefäßchirurgie</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Facharzt für Viszeralchirurgie</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Moderne Diagnostik</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Individuelle Beratung</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=600&q=80" alt="Chirurgische Praxis">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Unsere Leistungen</h2>
+                <p>Spezialisierte chirurgische Versorgung</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h3>Gefäßchirurgie</h3>
+                    <p>Diagnostik und Behandlung von Arterien- und Venenerkrankungen, Krampfaderbehandlung, arterielle Verschlusskrankheit.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-procedures"></i>
+                    </div>
+                    <h3>Viszeralchirurgie</h3>
+                    <p>Operative Eingriffe an Bauchorganen, Gallenblasen-, Darm- und Magenoperationen.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-wave-square"></i>
+                    </div>
+                    <h3>Gefäßdiagnostik</h3>
+                    <p>Doppler-Sonographie, Duplexsonographie, ABI-Messung zur Früherkennung von Gefäßerkrankungen.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-band-aid"></i>
+                    </div>
+                    <h3>Wundmanagement</h3>
+                    <p>Professionelle Behandlung chronischer Wunden, Ulcus cruris, diabetisches Fußsyndrom.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                    <h3>Operationsvorbereitung</h3>
+                    <p>Umfassende präoperative Diagnostik und Beratung, Aufklärungsgespräche.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-notes-medical"></i>
+                    </div>
+                    <h3>Nachsorge</h3>
+                    <p>Postoperative Betreuung, Kontrolluntersuchungen, Rehabilitation und Langzeitbegleitung.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Appointment Section -->
+    <section id="appointment" class="section appointment">
+        <div class="container">
+            <div class="section-header">
+                <h2>Termin vereinbaren</h2>
+                <p>Buchen Sie Ihren Termin bequem online</p>
+                <div class="caldav-notice">
+                    <i class="fas fa-check-circle"></i>
+                    <span>✓ Kalender-Integration aktiv: Sie erhalten eine .ics-Datei per E-Mail, die Sie direkt in Ihren Kalender importieren können</span>
+                </div>
+            </div>
+            <div class="appointment-container">
+                <div class="appointment-info">
+                    <h3>Schnell und unkompliziert</h3>
+                    <p>Nutzen Sie unser Online-Formular, um einen Termin zu vereinbaren. Wir melden uns schnellstmöglich bei Ihnen zur Bestätigung.</p>
+
+                    <div class="info-box">
+                        <h4><i class="fas fa-clock"></i> Sprechzeiten</h4>
+                        <ul>
+                            <li><strong>Montag - Freitag:</strong> 08:00 - 12:00 Uhr</li>
+                            <li><strong>Montag, Dienstag, Donnerstag:</strong> 14:00 - 18:00 Uhr</li>
+                            <li><strong>Mittwoch & Freitag Nachmittag:</strong> Geschlossen</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-box">
+                        <h4><i class="fas fa-phone-alt"></i> Notfall</h4>
+                        <p>Bei akuten Notfällen wählen Sie bitte den <strong>Notruf 112</strong> oder den ärztlichen Bereitschaftsdienst <strong>116 117</strong>.</p>
+                    </div>
+                </div>
+
+                <div class="appointment-form-wrapper">
+                    <form id="appointmentForm" class="appointment-form" method="POST" action="php/appointment.php">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">Vorname *</label>
+                                <input type="text" id="firstName" name="firstName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Nachname *</label>
+                                <input type="text" id="lastName" name="lastName" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="birthdate">Geburtsdatum *</label>
+                                <input type="date" id="birthdate" name="birthdate" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="insurance">Versicherung *</label>
+                                <select id="insurance" name="insurance" required>
+                                    <option value="">Bitte wählen</option>
+                                    <option value="gesetzlich">Gesetzlich versichert</option>
+                                    <option value="privat">Privat versichert</option>
+                                    <option value="selbstzahler">Selbstzahler</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">E-Mail *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Telefon *</label>
+                                <input type="tel" id="phone" name="phone" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="appointmentDate">Wunschtermin (Datum) *</label>
+                                <input type="date" id="appointmentDate" name="appointmentDate" required min="">
+                            </div>
+                            <div class="form-group">
+                                <label for="appointmentTime">Wunschzeit</label>
+                                <select id="appointmentTime" name="appointmentTime">
+                                    <option value="">Bitte wählen</option>
+                                    <option value="08:00">08:00 Uhr</option>
+                                    <option value="09:00">09:00 Uhr</option>
+                                    <option value="10:00">10:00 Uhr</option>
+                                    <option value="11:00">11:00 Uhr</option>
+                                    <option value="14:00">14:00 Uhr</option>
+                                    <option value="15:00">15:00 Uhr</option>
+                                    <option value="16:00">16:00 Uhr</option>
+                                    <option value="17:00">17:00 Uhr</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="reason">Grund des Besuchs *</label>
+                            <select id="reason" name="reason" required>
+                                <option value="">Bitte wählen</option>
+                                <option value="erstbesuch">Erstbesuch</option>
+                                <option value="kontrolluntersuchung">Kontrolluntersuchung</option>
+                                <option value="vorsorge">Vorsorgeuntersuchung</option>
+                                <option value="impfung">Impfung</option>
+                                <option value="attest">Attest/Bescheinigung</option>
+                                <option value="akute-beschwerden">Akute Beschwerden</option>
+                                <option value="sonstiges">Sonstiges</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Zusätzliche Informationen</label>
+                            <textarea id="message" name="message" rows="4" placeholder="Beschreiben Sie kurz Ihr Anliegen (optional)"></textarea>
+                        </div>
+
+                        <div class="form-group checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="privacy" required>
+                                <span>Ich habe die <a href="#" target="_blank">Datenschutzerklärung</a> gelesen und akzeptiert. *</span>
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-block">
+                            <i class="fas fa-paper-plane"></i> Termin anfragen
+                        </button>
+
+                        <div class="form-message" id="formMessage"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Kontakt & Anfahrt</h2>
+                <p>Wir sind für Sie da</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Adresse</h4>
+                            <p>Musterstraße 123<br>12345 Musterstadt</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Telefon</h4>
+                            <p><a href="tel:+491234567890">+49 123 456 7890</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-fax"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Fax</h4>
+                            <p>+49 123 456 7891</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>E-Mail</h4>
+                            <p><a href="mailto:praxis@beispiel.de">praxis@beispiel.de</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="map-container">
+                    <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=8.67%2C50.10%2C8.69%2C50.12&layer=mapnik" style="border:0; width:100%; height:100%; min-height:400px;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <img src="assets/img/logo.jpeg" alt="Logo" class="footer-logo">
+                    <p>Ihre Spezialisten für Gefäß- und Viszeralchirurgie in Remscheid.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Sprechzeiten</h4>
+                    <ul>
+                        <li>Mo - Fr: 08:00 - 12:00</li>
+                        <li>Mo, Di, Do: 14:00 - 18:00</li>
+                        <li>Mi & Fr: Nachmittag geschlossen</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Schnelllinks</h4>
+                    <ul>
+                        <li><a href="#home">Start</a></li>
+                        <li><a href="#services">Leistungen</a></li>
+                        <li><a href="#appointment">Termin buchen</a></li>
+                        <li><a href="#contact">Kontakt</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Rechtliches</h4>
+                    <ul>
+                        <li><a href="#">Impressum</a></li>
+                        <li><a href="#">Datenschutz</a></li>
+                        <li><a href="#">AGB</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Arztpraxis - Alle Rechte vorbehalten</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="assets/js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+# SICHERE LÖSUNG - DSGVO-konform
+# Installation: pip install -r requirements-sicher.txt
+
+# Umgebungsvariablen
+python-dotenv>=1.0.0
+
+# KEINE externen APIs!
+# KEIN OpenAI!
+# KEIN Cloud-Service!
+
+# Alle anderen Bibliotheken sind Python Standard Library:
+# - imaplib (E-Mail lesen)
+# - smtplib (E-Mail senden)
+# - email (E-Mail-Verarbeitung)
+# - re (Pattern-Matching)
+# - sqlite3 (Lokale Datenbank)
+# - hashlib (Pseudonymisierung)
+# - datetime (Datumsverarbeitung)
+
+# Das war's! Nur 1 Dependency.
+# 100% lokal, 100% DSGVO-konform

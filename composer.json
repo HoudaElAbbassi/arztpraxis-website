@@ -1,0 +1,15 @@
+{
+    "name": "arztpraxis/appointment-system",
+    "description": "Appointment booking system with CalDAV support",
+    "type": "project",
+    "require": {
+        "php": ">=7.4",
+        "sabre/dav": "^4.4",
+        "sabre/vobject": "^4.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Arztpraxis\\": "src/"
+        }
+    }
+}

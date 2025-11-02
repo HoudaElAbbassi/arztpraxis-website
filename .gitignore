@@ -1,0 +1,59 @@
+# Arztpraxis - Git Ignore File
+
+# Composer
+/vendor/
+composer.lock
+
+# Uploads (contains patient calendar files)
+/uploads/calendars/*.ics
+/uploads/*.ics
+
+# Data directory (CalDAV database)
+/data/
+*.db
+*.sqlite
+
+# Logs
+*.log
+/logs/
+
+# Environment files
+.env
+.env.local
+.env.production
+
+# IDE and Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# System files
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Temporary files
+*.tmp
+*.temp
+/tmp/
+
+# Cache
+/cache/
+*.cache
+
+# Backup files
+*.bak
+*.backup
+*-backup.*
+
+# Don't ignore these
+!.gitignore
+!.htaccess
+
+# Keep directory structure but ignore content
+/uploads/calendars/.gitkeep
