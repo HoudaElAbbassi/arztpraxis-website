@@ -120,17 +120,17 @@
             submitButton.disabled = true;
             submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Wird gesendet...';
 
-            // Submit form via AJAX
-            fetch(appointmentForm.action, {
+            // Submit form via AJAX to Netlify
+            fetch('/', {
                 method: 'POST',
-                body: formData
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: new URLSearchParams(formData).toString()
             })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
+            .then(response => {
+                if (response.ok) {
                     // Success message
                     formMessage.className = 'form-message success';
-                    formMessage.textContent = data.message || 'Vielen Dank! Ihre Terminanfrage wurde erfolgreich gesendet. Wir melden uns in Kürze bei Ihnen.';
+                    formMessage.textContent = 'Vielen Dank! Ihre Terminanfrage wurde erfolgreich gesendet. Wir melden uns in Kürze bei Ihnen.';
                     formMessage.style.display = 'block';
 
                     // Reset form
@@ -141,7 +141,7 @@
                 } else {
                     // Error message
                     formMessage.className = 'form-message error';
-                    formMessage.textContent = data.message || 'Es ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut.';
+                    formMessage.textContent = 'Es ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut.';
                     formMessage.style.display = 'block';
                 }
             })
