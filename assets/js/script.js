@@ -208,16 +208,24 @@
                 }
             }
 
-            // Date validation (not in the past)
+            // Date validation
             if (field.type === 'date' && field.value) {
                 const selectedDate = new Date(field.value);
                 const today = new Date();
                 today.setHours(0, 0, 0, 0);
 
-                if (selectedDate < today) {
+                // Appointment date must be in the future
+                if (field.id === 'appointmentDate' && selectedDate < today) {
                     field.style.borderColor = '#dc3545';
                     isValid = false;
                     showError('Bitte wählen Sie ein Datum in der Zukunft.');
+                }
+
+                // Birthdate must not be in the future
+                if (field.id === 'birthdate' && selectedDate > today) {
+                    field.style.borderColor = '#dc3545';
+                    isValid = false;
+                    showError('Das Geburtsdatum darf nicht in der Zukunft liegen.');
                 }
             }
         });
