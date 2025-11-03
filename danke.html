@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Vielen Dank für Ihre Terminanfrage">
+    <title>Vielen Dank - Praxis für Gefäßmedizin</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="assets/img/logo.jpeg">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <style>
+        .success-page {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, #2c5f7c 0%, #1a3a4a 100%);
+        }
+
+        .success-content {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            max-width: 600px;
+            text-align: center;
+        }
+
+        .success-icon {
+            width: 100px;
+            height: 100px;
+            background: #28a745;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            animation: scaleIn 0.5s ease-out;
+        }
+
+        .success-icon i {
+            font-size: 3rem;
+            color: white;
+        }
+
+        @keyframes scaleIn {
+            from {
+                transform: scale(0);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .success-content h1 {
+            color: #2c5f7c;
+            margin-bottom: 1rem;
+            font-size: 2rem;
+        }
+
+        .success-content p {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .success-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: #2c5f7c;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #1a3a4a;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            border: 2px solid #2c5f7c;
+            color: #2c5f7c;
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background: #2c5f7c;
+            color: white;
+        }
+
+        .info-box {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-top: 2rem;
+            border-left: 4px solid #2c5f7c;
+        }
+
+        .info-box h3 {
+            color: #2c5f7c;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .info-box p {
+            margin: 0;
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="success-page">
+        <div class="success-content">
+            <div class="success-icon">
+                <i class="fas fa-check"></i>
+            </div>
+
+            <h1>Vielen Dank für Ihre Terminanfrage!</h1>
+
+            <p>
+                Wir haben Ihre Terminanfrage erfolgreich erhalten und werden diese schnellstmöglich bearbeiten.
+            </p>
+
+            <p>
+                Sie erhalten in Kürze eine Bestätigung per E-Mail. Wir werden uns innerhalb der nächsten 24 Stunden
+                bei Ihnen melden, um Ihren Wunschtermin zu bestätigen oder Ihnen einen alternativen Termin vorzuschlagen.
+            </p>
+
+            <div class="info-box">
+                <h3><i class="fas fa-phone-alt"></i> Bei dringenden Anliegen</h3>
+                <p>
+                    Kontaktieren Sie uns gerne direkt telefonisch:<br>
+                    <strong>+49 123 456 7890</strong>
+                </p>
+            </div>
+
+            <div class="success-buttons">
+                <a href="/" class="btn btn-primary">
+                    <i class="fas fa-home"></i> Zur Startseite
+                </a>
+                <a href="/#contact" class="btn btn-outline">
+                    <i class="fas fa-info-circle"></i> Kontaktinformationen
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

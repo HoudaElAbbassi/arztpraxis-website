@@ -114,8 +114,6 @@
 
     if (appointmentForm) {
         appointmentForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-
             // Clear previous messages
             formMessage.className = 'form-message';
             formMessage.textContent = '';
@@ -123,54 +121,16 @@
 
             // Validate form
             if (!validateForm()) {
+                e.preventDefault(); // Only prevent if validation fails
                 return;
             }
 
-            // Get form data
-            const formData = new FormData(appointmentForm);
-
-            // Show loading state
+            // If validation passes, show loading state and allow normal form submission
             const submitButton = appointmentForm.querySelector('button[type="submit"]');
-            const originalButtonText = submitButton.innerHTML;
             submitButton.disabled = true;
             submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Wird gesendet...';
 
-            // Submit form via AJAX to Netlify
-            fetch('/', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                body: new URLSearchParams(formData).toString()
-            })
-            .then(response => {
-                if (response.ok) {
-                    // Success message
-                    formMessage.className = 'form-message success';
-                    formMessage.textContent = 'Vielen Dank! Ihre Terminanfrage wurde erfolgreich gesendet. Wir melden uns in Kürze bei Ihnen.';
-                    formMessage.style.display = 'block';
-
-                    // Reset form
-                    appointmentForm.reset();
-
-                    // Scroll to message
-                    formMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                } else {
-                    // Error message
-                    formMessage.className = 'form-message error';
-                    formMessage.textContent = 'Es ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut.';
-                    formMessage.style.display = 'block';
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                formMessage.className = 'form-message error';
-                formMessage.textContent = 'Es ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut oder kontaktieren Sie uns telefonisch.';
-                formMessage.style.display = 'block';
-            })
-            .finally(() => {
-                // Restore button
-                submitButton.disabled = false;
-                submitButton.innerHTML = originalButtonText;
-            });
+            // Form will submit normally to Netlify
         });
     }
 
