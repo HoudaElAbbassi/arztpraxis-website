@@ -1,0 +1,14 @@
+{
+  "name": "arztpraxis-website",
+  "version": "1.0.0",
+  "description": "Arztpraxis Website mit Terminbuchung",
+  "scripts": {
+    "dev": "netlify dev"
+  },
+  "dependencies": {
+    "node-fetch": "^2.7.0"
+  },
+  "devDependencies": {
+    "netlify-cli": "^17.0.0"
+  }
+}

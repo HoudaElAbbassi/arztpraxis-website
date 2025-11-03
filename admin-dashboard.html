@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Terminverwaltung</title>
+    <link rel="icon" type="image/jpeg" href="assets/img/logo.jpeg">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f5f5f5;
+            min-height: 100vh;
+        }
+
+        .header {
+            background: #2c5f7c;
+            color: white;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header h1 {
+            font-size: 1.5rem;
+        }
+
+        .btn-logout {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+
+        .btn-logout:hover {
+            background: rgba(255,255,255,0.3);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .stat-card h3 {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-card .number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #2c5f7c;
+        }
+
+        .submissions {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+
+        .submissions-header {
+            padding: 1.5rem;
+            border-bottom: 2px solid #f0f0f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .submissions-header h2 {
+            color: #333;
+        }
+
+        .loading {
+            padding: 3rem;
+            text-align: center;
+            color: #666;
+        }
+
+        .submission-card {
+            padding: 1.5rem;
+            border-bottom: 1px solid #f0f0f0;
+            transition: background 0.3s;
+        }
+
+        .submission-card:hover {
+            background: #f9f9f9;
+        }
+
+        .submission-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1rem;
+        }
+
+        .submission-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .submission-date {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .submission-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .detail-item {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .detail-item i {
+            color: #2c5f7c;
+            width: 20px;
+        }
+
+        .detail-item .label {
+            font-weight: 500;
+            color: #666;
+        }
+
+        .detail-item .value {
+            color: #333;
+        }
+
+        .submission-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .btn {
+            padding: 0.6rem 1.2rem;
+            border: none;
+            border-radius: 6px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-approve {
+            background: #28a745;
+            color: white;
+        }
+
+        .btn-approve:hover {
+            background: #218838;
+        }
+
+        .btn-reject {
+            background: #dc3545;
+            color: white;
+        }
+
+        .btn-reject:hover {
+            background: #c82333;
+        }
+
+        .btn-refresh {
+            background: #2c5f7c;
+            color: white;
+        }
+
+        .btn-refresh:hover {
+            background: #1a3a4a;
+        }
+
+        .status-badge {
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .status-pending {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .status-approved {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .status-rejected {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .no-submissions {
+            padding: 3rem;
+            text-align: center;
+            color: #666;
+        }
+
+        .message {
+            padding: 1rem;
+            border-radius: 6px;
+            margin-bottom: 1rem;
+            display: none;
+        }
+
+        .message.show {
+            display: block;
+        }
+
+        .message.success {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .message.error {
+            background: #f8d7da;
+            color: #721c24;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1><i class="fas fa-calendar-check"></i> Terminverwaltung</h1>
+        <button class="btn-logout" onclick="logout()">
+            <i class="fas fa-sign-out-alt"></i> Abmelden
+        </button>
+    </div>
+
+    <div class="container">
+        <div class="message" id="message"></div>
+
+        <div class="stats">
+            <div class="stat-card">
+                <h3>Offene Anfragen</h3>
+                <div class="number" id="statPending">0</div>
+            </div>
+            <div class="stat-card">
+                <h3>Bestätigt</h3>
+                <div class="number" id="statApproved">0</div>
+            </div>
+            <div class="stat-card">
+                <h3>Abgelehnt</h3>
+                <div class="number" id="statRejected">0</div>
+            </div>
+            <div class="stat-card">
+                <h3>Gesamt</h3>
+                <div class="number" id="statTotal">0</div>
+            </div>
+        </div>
+
+        <div class="submissions">
+            <div class="submissions-header">
+                <h2>Terminanfragen</h2>
+                <button class="btn btn-refresh" onclick="loadSubmissions()">
+                    <i class="fas fa-sync-alt"></i> Aktualisieren
+                </button>
+            </div>
+
+            <div id="submissionsList">
+                <div class="loading">
+                    <i class="fas fa-spinner fa-spin fa-2x"></i>
+                    <p>Lade Anfragen...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Check if logged in
+        const adminPassword = sessionStorage.getItem('adminPassword');
+        if (!adminPassword) {
+            window.location.href = '/admin.html';
+        }
+
+        // Get stored statuses from localStorage
+        function getStoredStatuses() {
+            const stored = localStorage.getItem('submissionStatuses');
+            return stored ? JSON.parse(stored) : {};
+        }
+
+        function setStatus(submissionId, status) {
+            const statuses = getStoredStatuses();
+            statuses[submissionId] = status;
+            localStorage.setItem('submissionStatuses', JSON.stringify(statuses));
+        }
+
+        function getStatus(submissionId) {
+            const statuses = getStoredStatuses();
+            return statuses[submissionId] || 'pending';
+        }
+
+        function showMessage(text, type = 'success') {
+            const message = document.getElementById('message');
+            message.textContent = text;
+            message.className = `message ${type} show`;
+
+            setTimeout(() => {
+                message.classList.remove('show');
+            }, 5000);
+        }
+
+        function logout() {
+            sessionStorage.removeItem('adminPassword');
+            window.location.href = '/admin.html';
+        }
+
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            return date.toLocaleDateString('de-DE', {
+                day: '2-digit',
+                month: '2-digit',
+                year: 'numeric'
+            });
+        }
+
+        function formatDateTime(dateString) {
+            const date = new Date(dateString);
+            return date.toLocaleString('de-DE', {
+                day: '2-digit',
+                month: '2-digit',
+                year: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+            });
+        }
+
+        async function loadSubmissions() {
+            const submissionsList = document.getElementById('submissionsList');
+            submissionsList.innerHTML = '<div class="loading"><i class="fas fa-spinner fa-spin fa-2x"></i><p>Lade Anfragen...</p></div>';
+
+            try {
+                const response = await fetch('/.netlify/functions/get-submissions', {
+                    headers: {
+                        'x-admin-password': adminPassword
+                    }
+                });
+
+                if (!response.ok) {
+                    throw new Error('Failed to load submissions');
+                }
+
+                const submissions = await response.json();
+
+                if (submissions.length === 0) {
+                    submissionsList.innerHTML = '<div class="no-submissions"><i class="fas fa-inbox fa-3x" style="color: #ccc; margin-bottom: 1rem;"></i><p>Keine Terminanfragen vorhanden</p></div>';
+                    updateStats(submissions);
+                    return;
+                }
+
+                // Sort by date (newest first)
+                submissions.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+
+                submissionsList.innerHTML = submissions.map(submission => {
+                    const data = submission.data;
+                    const status = getStatus(submission.id);
+
+                    return `
+                        <div class="submission-card" data-id="${submission.id}">
+                            <div class="submission-header">
+                                <div>
+                                    <div class="submission-name">${data.firstName} ${data.lastName}</div>
+                                    <div class="submission-date">Eingegangen: ${formatDateTime(submission.created_at)}</div>
+                                </div>
+                                <span class="status-badge status-${status}">
+                                    ${status === 'pending' ? 'Offen' : status === 'approved' ? 'Bestätigt' : 'Abgelehnt'}
+                                </span>
+                            </div>
+
+                            <div class="submission-details">
+                                <div class="detail-item">
+                                    <i class="fas fa-birthday-cake"></i>
+                                    <span><span class="label">Geburtsdatum:</span> ${formatDate(data.birthdate)}</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-shield-alt"></i>
+                                    <span><span class="label">Versicherung:</span> ${data.insurance}</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-envelope"></i>
+                                    <span><span class="label">E-Mail:</span> ${data.email}</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-phone"></i>
+                                    <span><span class="label">Telefon:</span> ${data.phone}</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-calendar"></i>
+                                    <span><span class="label">Wunschtermin:</span> ${formatDate(data.appointmentDate)}</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-clock"></i>
+                                    <span><span class="label">Wunschzeit:</span> ${data.appointmentTime || 'Keine Angabe'}</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-stethoscope"></i>
+                                    <span><span class="label">Grund:</span> ${data.reason}</span>
+                                </div>
+                            </div>
+
+                            ${data.message ? `
+                                <div style="margin-top: 1rem; padding: 1rem; background: #f8f9fa; border-radius: 6px;">
+                                    <strong>Zusätzliche Informationen:</strong><br>
+                                    ${data.message}
+                                </div>
+                            ` : ''}
+
+                            <div class="submission-actions">
+                                ${status === 'pending' ? `
+                                    <button class="btn btn-approve" onclick="approveSubmission('${submission.id}', '${data.email}', '${data.firstName}', '${data.lastName}', '${formatDate(data.appointmentDate)}', '${data.appointmentTime || ''}')">
+                                        <i class="fas fa-check"></i> Bestätigen
+                                    </button>
+                                    <button class="btn btn-reject" onclick="rejectSubmission('${submission.id}', '${data.email}', '${data.firstName}', '${data.lastName}', '${formatDate(data.appointmentDate)}')">
+                                        <i class="fas fa-times"></i> Ablehnen
+                                    </button>
+                                ` : status === 'approved' ? `
+                                    <span style="color: #28a745;"><i class="fas fa-check-circle"></i> Termin wurde bestätigt</span>
+                                ` : `
+                                    <span style="color: #dc3545;"><i class="fas fa-times-circle"></i> Termin wurde abgelehnt</span>
+                                `}
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+
+                updateStats(submissions);
+            } catch (error) {
+                console.error('Error loading submissions:', error);
+                submissionsList.innerHTML = '<div class="no-submissions"><i class="fas fa-exclamation-circle fa-3x" style="color: #dc3545; margin-bottom: 1rem;"></i><p>Fehler beim Laden der Anfragen</p></div>';
+            }
+        }
+
+        function updateStats(submissions) {
+            const statuses = submissions.map(s => getStatus(s.id));
+
+            document.getElementById('statTotal').textContent = submissions.length;
+            document.getElementById('statPending').textContent = statuses.filter(s => s === 'pending').length;
+            document.getElementById('statApproved').textContent = statuses.filter(s => s === 'approved').length;
+            document.getElementById('statRejected').textContent = statuses.filter(s => s === 'rejected').length;
+        }
+
+        async function approveSubmission(id, email, firstName, lastName, appointmentDate, appointmentTime) {
+            if (!confirm(`Möchten Sie den Termin für ${firstName} ${lastName} am ${appointmentDate} bestätigen?`)) {
+                return;
+            }
+
+            try {
+                const response = await fetch('/.netlify/functions/send-confirmation', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'x-admin-password': adminPassword
+                    },
+                    body: JSON.stringify({
+                        email,
+                        firstName,
+                        lastName,
+                        appointmentDate,
+                        appointmentTime,
+                        status: 'approved'
+                    })
+                });
+
+                if (response.ok) {
+                    setStatus(id, 'approved');
+                    showMessage(`Termin für ${firstName} ${lastName} wurde bestätigt. E-Mail wurde versendet.`, 'success');
+                    loadSubmissions();
+                } else {
+                    throw new Error('Failed to send confirmation');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                showMessage('Fehler beim Bestätigen des Termins', 'error');
+            }
+        }
+
+        async function rejectSubmission(id, email, firstName, lastName, appointmentDate) {
+            if (!confirm(`Möchten Sie den Termin für ${firstName} ${lastName} am ${appointmentDate} ablehnen?`)) {
+                return;
+            }
+
+            try {
+                const response = await fetch('/.netlify/functions/send-confirmation', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'x-admin-password': adminPassword
+                    },
+                    body: JSON.stringify({
+                        email,
+                        firstName,
+                        lastName,
+                        appointmentDate,
+                        status: 'rejected'
+                    })
+                });
+
+                if (response.ok) {
+                    setStatus(id, 'rejected');
+                    showMessage(`Termin für ${firstName} ${lastName} wurde abgelehnt. E-Mail wurde versendet.`, 'success');
+                    loadSubmissions();
+                } else {
+                    throw new Error('Failed to send rejection');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                showMessage('Fehler beim Ablehnen des Termins', 'error');
+            }
+        }
+
+        // Load submissions on page load
+        loadSubmissions();
+
+        // Auto-refresh every 60 seconds
+        setInterval(loadSubmissions, 60000);
+    </script>
+</body>
+</html>

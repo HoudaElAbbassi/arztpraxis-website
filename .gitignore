@@ -22,6 +22,13 @@ composer.lock
 .env.local
 .env.production
 
+# Node.js
+node_modules/
+package-lock.json
+
+# Netlify
+.netlify/
+
 # IDE and Editor files
 .vscode/
 .idea/
