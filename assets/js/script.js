@@ -80,15 +80,30 @@
     });
 
     // ==========================================
-    // Set Minimum Date for Appointment Booking
+    // Set Date Constraints
     // ==========================================
+
+    // Set minimum date for appointment booking (tomorrow)
     const appointmentDateInput = document.getElementById('appointmentDate');
     if (appointmentDateInput) {
-        // Set minimum date to tomorrow
-        const today = new Date();
-        today.setDate(today.getDate() + 1);
-        const minDate = today.toISOString().split('T')[0];
+        const tomorrow = new Date();
+        tomorrow.setDate(tomorrow.getDate() + 1);
+        const minDate = tomorrow.toISOString().split('T')[0];
         appointmentDateInput.setAttribute('min', minDate);
+    }
+
+    // Set date constraints for birthdate (max: today, min: 120 years ago)
+    const birthdateInput = document.getElementById('birthdate');
+    if (birthdateInput) {
+        const today = new Date();
+        const maxDate = today.toISOString().split('T')[0];
+
+        const minBirthdate = new Date();
+        minBirthdate.setFullYear(minBirthdate.getFullYear() - 120);
+        const minDate = minBirthdate.toISOString().split('T')[0];
+
+        birthdateInput.setAttribute('max', maxDate);
+        birthdateInput.setAttribute('min', minDate);
     }
 
     // ==========================================
