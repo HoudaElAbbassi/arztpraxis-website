@@ -1,7 +1,16 @@
 [build]
   publish = "."
 
+# Form settings with custom success page
+[[forms]]
+  name = "terminanfrage"
+
+  [forms.settings]
+    redirect = "/danke.html"
+
+# Redirects
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
+  force = false

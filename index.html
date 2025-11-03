@@ -188,9 +188,10 @@
                 </div>
 
                 <div class="appointment-form-wrapper">
-                    <form id="appointmentForm" name="terminanfrage" class="appointment-form" method="POST" action="/danke.html" data-netlify="true" netlify-honeypot="bot-field">
-                        <!-- Hidden field for Netlify Forms -->
+                    <form id="appointmentForm" name="terminanfrage" class="appointment-form" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+                        <!-- Hidden fields for Netlify Forms -->
                         <input type="hidden" name="form-name" value="terminanfrage" />
+                        <input type="hidden" name="subject" value="Neue Terminanfrage über Website" />
 
                         <!-- Honeypot field for spam prevention -->
                         <p style="display:none;">

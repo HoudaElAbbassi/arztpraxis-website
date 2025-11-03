@@ -47,8 +47,6 @@ class CalendarService {
             'erstbesuch' => 'Erstbesuch',
             'kontrolluntersuchung' => 'Kontrolluntersuchung',
             'vorsorge' => 'Vorsorgeuntersuchung',
-            'impfung' => 'Impfung',
-            'attest' => 'Attest/Bescheinigung',
             'akute-beschwerden' => 'Akute Beschwerden',
             'sonstiges' => 'Sonstiges'
         ];
